@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bcy72oafa2v8k"]
+
+[ext_resource type="Script" uid="uid://ca2s7gyrq7hyp" path="res://scenes/entities/snowflake.gd" id="1_7k04j"]
+[ext_resource type="Texture2D" uid="uid://cpnt3t8xahw2g" path="res://icon.svg" id="2_2j5ub"]
+
+[node name="Snowflake" type="Node2D" unique_id=1439802293]
+script = ExtResource("1_7k04j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1055765169]
+modulate = Color(0.78248435, 0.09781741, 0.32781693, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2j5ub")
