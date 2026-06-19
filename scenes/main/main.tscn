@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://b71tvqy3dgg0v"]
 
-[ext_resource type="Script" uid="uid://dcse7myowdo07" path="res://scenes/main/enemy_spawner.gd" id="2_iuonh"]
 [ext_resource type="Script" uid="uid://dqbj34incuvmu" path="res://scenes/main/snowflake_spawner.gd" id="2_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://di84k6civ0kfq" path="res://scenes/entities/enemy.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://bcy72oafa2v8k" path="res://scenes/entities/snowflake.tscn" id="4_l3cfh"]
 
 [node name="Main" type="Node2D" unique_id=506265193]
@@ -10,32 +8,16 @@ y_sort_enabled = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1567941942]
 
-[node name="EnemySpawner" type="Node2D" parent="." unique_id=1785079823 node_paths=PackedStringArray("spawn_timer", "spawn_destination")]
-y_sort_enabled = true
-script = ExtResource("2_iuonh")
-spawn_timer = NodePath("EnemySpawnTimer")
-entity_to_spawn = ExtResource("3_k2fmo")
-spawn_destination = NodePath("../Entities/Enemies")
-
-[node name="EnemySpawnTimer" type="Timer" parent="EnemySpawner" unique_id=330326440]
-autostart = true
-
 [node name="SnowflakeSpawner" type="Node2D" parent="." unique_id=927013885 node_paths=PackedStringArray("spawn_timer", "spawn_destination")]
 y_sort_enabled = true
 script = ExtResource("2_k2fmo")
 spawn_timer = NodePath("SnowflakeSpawnerTimer")
 entity_to_spawn = ExtResource("4_l3cfh")
-spawn_destination = NodePath("../Entities/Snowflakes")
+spawn_destination = NodePath("../Snowflakes")
 
 [node name="SnowflakeSpawnerTimer" type="Timer" parent="SnowflakeSpawner" unique_id=1001083354]
 wait_time = 2.0
 autostart = true
 
-[node name="Entities" type="Node2D" parent="." unique_id=119993767]
-y_sort_enabled = true
-
-[node name="Enemies" type="Node2D" parent="Entities" unique_id=2020797183]
-y_sort_enabled = true
-
-[node name="Snowflakes" type="Node2D" parent="Entities" unique_id=500107557]
+[node name="Snowflakes" type="Node2D" parent="." unique_id=500107557]
 y_sort_enabled = true
