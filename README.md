@@ -4,10 +4,6 @@ This repo demonstrates an issue in Godot where nodes are instantiated with the s
 
 ![](RemoteTree.png)
 
-> [!IMPORTANT]
-> The `Enemies` spawner and nodes were removed to make the project more concise for review.
-
-The offending code is in [snowflake_spawner](scenes/main/snowflake_spawner.gd):
-
-- Unlike the [enemy_spawner](scenes/main/enemy_spawner.gd), which directly adds the instance to its spawn_destination, the snowflake_spawner waits for a signal from the autoloaded entities.gd.
-- Upon receiving the signal, the node is added to the tree.
+- In [Snowflake](scenes/entities/entity.gd) `_init()`, it passes itself to an [Autoload signal](autoload/entities.gd)
+- `instantiate()` and return this object in the [spawner](scripts/spawner.gd)'s `_ready`
+- The autoload's signal is watched by a [snowflake_spawner](scenes/main/snowflake_spawner.gd) that handles adding the node to the correct place
